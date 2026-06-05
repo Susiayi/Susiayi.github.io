@@ -337,73 +337,59 @@
     }
     .btn-about-li:hover { opacity: 0.88; }
 
-    /* ── 03 DIGITAL TOOLKIT ── */
-    #toolkit { padding: var(--gap) 0; background: var(--white); }
-    .toolkit-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .toolkit-desc {
-      font-size: 0.98rem; color: var(--ink-soft); line-height: 1.88; margin-bottom: 1.4rem;
-    }
-    .toolkit-desc strong { color: var(--ink); font-weight: 500; }
+    /* ── 03 MY SKILLS LOGO WALL ── */
+    #skills { padding: var(--gap) 0; background: var(--white); }
+    .skills-hd { margin-bottom: 3rem; }
     
-    /* Dynamic Coded Logo Window */
-    .toolkit-window {
-      width: 100%;
-      background: var(--cream);
-      border-radius: var(--r);
-      padding: 2rem;
-      border: 1px solid var(--parchment);
-    }
-    .logo-wall-grid {
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5px;
+      background: var(--parchment);
+      border: 1.5px solid var(--parchment);
+      border-radius: 4px;
+      overflow: hidden;
     }
-    .logo-item {
+    .skill-item {
       background: var(--white);
-      border: 1px solid var(--parchment);
-      border-radius: var(--r);
+      padding: 2.5rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem 1rem;
-      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      text-align: center;
+      transition: background 0.22s ease, transform 0.22s ease;
     }
-    .logo-item:hover {
-      transform: translateY(-3px);
-      border-color: var(--terracotta);
-      box-shadow: 0 4px 20px rgba(196,98,45,0.06);
+    .skill-item:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
     }
-    .logo-item svg {
-      width: 32px;
-      height: 32px;
+    .skill-icon {
+      width: 36px;
+      height: 36px;
       fill: currentColor;
       color: var(--ink-soft);
+      margin-bottom: 0.9rem;
       transition: color 0.22s ease;
     }
-    .logo-item:hover svg {
+    .skill-item:hover .skill-icon {
       color: var(--terracotta);
     }
-    .logo-label {
+    .skill-name {
       font-family: var(--font-mono);
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 0.75rem;
       color: var(--ink-muted);
-      text-align: center;
     }
 
-    @media (max-width: 840px) {
-      .toolkit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    /* Responsive adjustments for the skills matrix */
+    @media (max-width: 980px) {
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 480px) {
-      .logo-wall-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
 
 
     /* ══════════ EXPERIENCE ══════════ */
@@ -794,92 +780,75 @@
   </div>
 </section>
 
-<!-- ══════════════════════ DIGITAL TOOLKIT ══════════════════════ -->
-<section id="toolkit">
+<!-- ══════════════════════ MY SKILLS ══════════════════════ -->
+<section id="skills">
   <div class="container">
-    <div class="toolkit-grid">
+    
+    <div class="skills-hd rv">
+      <p class="sec-num">03 / Expertise</p>
+      <h2 class="sec-title">My Skills &amp;<br>Digital Toolkit.</h2>
+    </div>
 
-      <div>
-        <div class="rv">
-          <p class="sec-num">03 / Digital Toolkit</p>
-          <h2 class="sec-title">Platforms, tools<br>&amp; ecosystems.</h2>
-        </div>
-        <div class="rv">
-          <p class="toolkit-desc">
-            A snapshot of the modern digital environments I navigate daily. From orchestrating multi-regional cross-border advertising channels to asset production and AI-augmented creative workflows, these ecosystems power my storytelling.
-          </p>
-          <p class="toolkit-desc">
-            <strong>Social &amp; Analytics:</strong> Meta Business Suite, Google Ads Manager, LinkedIn Campaign Manager, WeChat Backstage, Douyin Ocean Engine, X Analytics.
-          </p>
-          <p class="toolkit-desc">
-            <strong>Creative &amp; Production:</strong> Adobe Creative Cloud (Premiere Pro, Photoshop, Lightroom), DSLR/Mirrorless Photography, and cross-platform localization pipelines.
-          </p>
-          <p class="toolkit-desc">
-            <strong>AI &amp; Automation:</strong> Advanced prompt architectures via ChatGPT, Midjourney, and Claude to build hyper-efficient modern marketing stacks.
-          </p>
-        </div>
+    <div class="skills-grid rv">
+
+      <!-- Meta Managing Platforms -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M16.142 2A4.27 4.27 0 0 0 13.1 3.275L12 4.316l-1.1-1.041A4.27 4.27 0 0 0 7.858 2 4.887 4.887 0 0 0 3 6.953c0 2.227 1.55 4.542 4.607 6.882 1.34 1.025 2.871 1.956 4.393 2.813a.047.047 0 0 0 .047 0c1.522-.857 3.053-1.788 4.393-2.813C19.45 11.495 21 9.18 21 6.953A4.887 4.887 0 0 0 16.142 2zm-.05 8.75c-1.892 0-3.32-.937-4.092-1.92-.772.983-2.2 1.92-4.092 1.92-1.898 0-3.08-.946-3.08-2.5 0-1.77 1.503-3.25 3.08-3.25 1.564 0 2.851.986 3.592 1.954.212.278.375.278.587 0 .74-.968 2.028-1.954 3.593-1.954 1.576 0 3.08 1.48 3.08 3.25 0 1.554-1.182 2.5-3.08 2.5z"/></svg>
+        <span class="skill-name">Meta Ads</span>
       </div>
 
-      <div class="rv">
-        <div class="toolkit-window">
-          <div class="logo-wall-grid">
-            
-            <!-- META -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M16.142 2A4.27 4.27 0 0 0 13.1 3.275L12 4.316l-1.1-1.041A4.27 4.27 0 0 0 7.858 2 4.887 4.887 0 0 0 3 6.953c0 2.227 1.55 4.542 4.607 6.882 1.34 1.025 2.871 1.956 4.393 2.813a.047.047 0 0 0 .047 0c1.522-.857 3.053-1.788 4.393-2.813C19.45 11.495 21 9.18 21 6.953A4.887 4.887 0 0 0 16.142 2zm-.05 8.75c-1.892 0-3.32-.937-4.092-1.92-.772.983-2.2 1.92-4.092 1.92-1.898 0-3.08-.946-3.08-2.5 0-1.77 1.503-3.25 3.08-3.25 1.564 0 2.851.986 3.592 1.954.212.278.375.278.587 0 .74-.968 2.028-1.954 3.593-1.954 1.576 0 3.08 1.48 3.08 3.25 0 1.554-1.182 2.5-3.08 2.5z"/></svg>
-              <div class="logo-label">Meta Ads</div>
-            </div>
+      <!-- Google Ads Management -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.98 0-.74-.08-1.3-.176-1.856H12.24z"/></svg>
+        <span class="skill-name">Google Ads</span>
+      </div>
 
-            <!-- GOOGLE -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.98 0-.74-.08-1.3-.176-1.856H12.24z"/></svg>
-              <div class="logo-label">Google Ads</div>
-            </div>
+      <!-- Adobe Suite -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M13.965 2.5h8.535v20.5h-8.535zM9.99 2.5H1.5v20.5h8.535zm1.996 8.35L17.2 23h-3.61l-2.031-4.996H8.082z"/></svg>
+        <span class="skill-name">Adobe CC</span>
+      </div>
 
-            <!-- ADOBE -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M13.965 2.5h8.535v20.5h-8.535zM9.99 2.5H1.5v20.5h8.535zm1.996 8.35L17.2 23h-3.61l-2.031-4.996H8.082z"/></svg>
-              <div class="logo-label">Adobe CC</div>
-            </div>
+      <!-- LinkedIn Ecosystem -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <span class="skill-name">LinkedIn Ads</span>
+      </div>
 
-            <!-- LINKEDIN -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-              <div class="logo-label">LinkedIn</div>
-            </div>
+      <!-- Instagram/Social Platforms -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m11.15 1.7a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15M12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3z"/></svg>
+        <span class="skill-name">Instagram</span>
+      </div>
 
-            <!-- INSTAGRAM -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m11.15 1.7a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15M12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3z"/></svg>
-              <div class="logo-label">Instagram</div>
-            </div>
+      <!-- YouTube Operations -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.503 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.933-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span class="skill-name">YouTube</span>
+      </div>
 
-            <!-- YOUTUBE -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.503 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.386.507 9.386.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.933-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              <div class="logo-label">YouTube</div>
-            </div>
+      <!-- TikTok / Douyin Matrices -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.22 1.35 2.97 2.2 4.83 2.42v3.74c-1.78-.05-3.53-.55-5.02-1.54V14.3c.02 3.32-1.92 6.47-5.07 7.6a7.12 7.12 0 0 1-7.98-1.93 7.42 7.42 0 0 1-.41-8.91 7.21 7.21 0 0 1 5.67-3.73v3.79c-1.46.22-2.77 1.15-3.39 2.48a3.56 3.56 0 0 0 1.25 4.54 3.5 3.5 0 0 0 4.67-.47 3.6 3.6 0 0 0 .97-3.21V0h-.05z"/></svg>
+        <span class="skill-name">Ocean Engine</span>
+      </div>
 
-            <!-- TIKTOK / DOUYIN -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.22 1.35 2.97 2.2 4.83 2.42v3.74c-1.78-.05-3.53-.55-5.02-1.54V14.3c.02 3.32-1.92 6.47-5.07 7.6a7.12 7.12 0 0 1-7.98-1.93 7.42 7.42 0 0 1-.41-8.91 7.21 7.21 0 0 1 5.67-3.73v3.79c-1.46.22-2.77 1.15-3.39 2.48a3.56 3.56 0 0 0 1.25 4.54 3.5 3.5 0 0 0 4.67-.47 3.6 3.6 0 0 0 .97-3.21V0h-.05z"/></svg>
-              <div class="logo-label">TikTok Engine</div>
-            </div>
+      <!-- WeChat Ecosystem -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span class="skill-name">WeChat Biz</span>
+      </div>
 
-            <!-- PHOTOGRAPHY -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-              <div class="logo-label">Photography</div>
-            </div>
+      <!-- Photography Tools -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <span class="skill-name">Photography</span>
+      </div>
 
-            <!-- AI TOOLS -->
-            <div class="logo-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
-              <div class="logo-label">AI Automation</div>
-            </div>
-
-          </div>
-        </div>
+      <!-- AI Creative/Automation Tools -->
+      <div class="skill-item">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
+        <span class="skill-name">AI Automation</span>
       </div>
 
     </div>
