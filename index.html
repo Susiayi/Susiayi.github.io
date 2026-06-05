@@ -337,6 +337,43 @@
     }
     .btn-about-li:hover { opacity: 0.88; }
 
+    /* ── 03 DIGITAL TOOLKIT ── */
+    #toolkit { padding: var(--gap) 0; background: var(--white); }
+    .toolkit-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .toolkit-desc {
+      font-size: 0.98rem; color: var(--ink-soft); line-height: 1.88; margin-bottom: 1.4rem;
+    }
+    .toolkit-desc strong { color: var(--ink); font-weight: 500; }
+    
+    /* The Image Window / Wall Box */
+    .toolkit-window {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--parchment);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border: 1px solid var(--parchment);
+    }
+    .toolkit-placeholder {
+      text-align: center;
+      color: var(--ink-muted);
+      padding: 2rem;
+    }
+    .toolkit-placeholder svg { opacity: 0.35; margin-bottom: 0.75rem; }
+    .toolkit-placeholder p { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; }
+
+    @media (max-width: 840px) {
+      .toolkit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .toolkit-window { aspect-ratio: 16 / 10; }
+    }
+
     /* ══════════ EXPERIENCE ══════════ */
     #experience { padding: var(--gap) 0; background: var(--ink); color: var(--cream); }
     #experience .sec-title { color: var(--cream); }
@@ -725,12 +762,56 @@
   </div>
 </section>
 
+<!-- ══════════════════════ DIGITAL TOOLKIT ══════════════════════ -->
+<section id="toolkit">
+  <div class="container">
+    <div class="toolkit-grid">
+
+      <div>
+        <div class="rv">
+          <p class="sec-num">03 / Digital Toolkit</p>
+          <h2 class="sec-title">Platforms, tools<br>&amp; ecosystems.</h2>
+        </div>
+        <div class="rv">
+          <p class="toolkit-desc">
+            A snapshot of the modern digital environments I navigate daily. From orchestrating multi-regional cross-border advertising channels to asset production and AI-augmented creative workflows, these ecosystems power my storytelling.
+          </p>
+          <p class="toolkit-desc">
+            <strong>Social &amp; Analytics:</strong> Meta Business Suite, Google Ads Manager, LinkedIn Campaign Manager, WeChat Backstage, Douyin Ocean Engine, X Analytics.
+          </p>
+          <p class="toolkit-desc">
+            <strong>Creative &amp; Production:</strong> Adobe Creative Cloud (Premiere Pro, Photoshop, Lightroom), DSLR/Mirrorless Photography, and cross-platform localization pipelines.
+          </p>
+          <p class="toolkit-desc">
+            <strong>AI &amp; Automation:</strong> Advanced prompt architectures via ChatGPT, Midjourney, and Claude to build hyper-efficient modern marketing stacks.
+          </p>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="toolkit-window">
+          <!-- 
+            WHEN  PIC IS READY:
+            Replace this entire inner .toolkit-placeholder div with your real image tag:
+            <img src="your-image-path.jpg" alt="Digital Tools Wall" style="width:100%; height:100%; object-fit:cover;">
+          -->
+          <div class="toolkit-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <p>Drop your Logo Wall Picture here</p>
+            <p style="font-size: 0.6rem; color: var(--terracotta); margin-top: 0.5rem; text-transform: uppercase;">Suggested Canvas Size: 4:3 Aspect Ratio</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
 <section id="experience">
   <div class="container">
     <div class="exp-hd">
       <div>
-        <p class="lbl rv">03 / Experience</p>
+        <p class="lbl rv">04 / Experience</p>
         <h2 class="sec-title rv">Where I've<br>done the work.</h2>
       </div>
       <!-- EDIT: Your LinkedIn URL -->
