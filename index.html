@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="noindex, nofollow" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ============================================================
-       EDIT THIS: Change to your name and tagline
-       ============================================================ -->
+  <meta name="robots" content="noindex, nofollow" />
   <title>Susan Jiayi Yao — Communications & Marketing</title>
-  <meta name="description" content="Communications journalist turned marketing strategist. Open to new opportunities." />
+  <meta name="description" content="Global marketing professional & communications journalist. Relocating to Germany 2026. Open to opportunities." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet" />
-
-  <!-- QR Code Library -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
-    /* ── Design Tokens ─────────────────────────────────────────── */
+    /* ── Design Tokens ─── */
     :root {
-      --cream:      #F7F4EF;
-      --parchment:  #EDE8DF;
-      --ink:        #1C1917;
-      --ink-soft:   #44403C;
-      --ink-muted:  #78716C;
-      --terracotta: #C4622D;
-      --terra-pale: #F2E4D8;
-      --gold:       #B5894A;
-      --white:      #FFFFFF;
+      --cream:       #F7F4EF;
+      --parchment:   #EDE8DF;
+      --ink:         #1C1917;
+      --ink-soft:    #44403C;
+      --ink-muted:   #78716C;
+      --terracotta:  #C4622D;
+      --terra-pale:  #F2E4D8;
+      --gold:        #B5894A;
+      --white:       #FFFFFF;
+      --linkedin:    #0A66C2;
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
       --font-mono:    'DM Mono', monospace;
 
       --max-w: 1100px;
-      --section-gap: 7rem;
+      --gap:   6rem;
+      --r:     3px;
     }
 
-    /* ── Reset ─────────────────────────────────────────────────── */
+    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -53,892 +48,887 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    /* ── Grain Overlay ─────────────────────────────────────────── */
+    /* Grain overlay */
     body::before {
       content: '';
       position: fixed; inset: 0;
       pointer-events: none; z-index: 9999;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.28;
     }
 
-    /* ── Utility ───────────────────────────────────────────────── */
-    .container { width: 90%; max-width: var(--max-w); margin: 0 auto; }
-    .mono      { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; }
-    .label     { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); }
+    /* ── Util ── */
+    .container  { width: 90%; max-width: var(--max-w); margin: 0 auto; }
+    .sec-num    { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; color: var(--ink-muted); margin-bottom: 0.35rem; }
+    .sec-title  {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 300; line-height: 1.14;
+      margin-bottom: 1.25rem;
+    }
+    .lbl { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); }
 
-    /* ── Scroll reveal ─────────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .rv.vis { opacity: 1; transform: none; }
 
-    /* ══════════════════════════════════════════════════════════════
-       NAV
-    ══════════════════════════════════════════════════════════════ */
+    /* ══════════ NAV ══════════ */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.25rem 0;
-      transition: background 0.4s, backdrop-filter 0.4s;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.1rem 0;
+      transition: background 0.35s, backdrop-filter 0.35s, border-bottom 0.35s;
     }
     nav.scrolled {
-      background: rgba(247, 244, 239, 0.88);
-      backdrop-filter: blur(14px);
+      background: rgba(247,244,239,0.93);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--parchment);
     }
-    nav .container {
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .nav-name {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links { display: flex; gap: 1.8rem; align-items: center; }
     .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-size: 0.79rem; font-weight: 500; letter-spacing: 0.06em;
       color: var(--ink-soft);
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--terracotta); }
-    .nav-cta {
-      padding: 0.5rem 1.2rem;
-      border: 1.5px solid var(--ink);
-      border-radius: 2px;
-      font-size: 0.78rem !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.08em !important;
-      color: var(--ink) !important;
-      transition: background 0.2s, color 0.2s !important;
+    .nav-li {
+      display: inline-flex !important; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.05rem;
+      background: var(--linkedin) !important;
+      color: #fff !important;
+      border-radius: var(--r);
+      font-size: 0.76rem !important; font-weight: 600 !important; letter-spacing: 0.04em !important;
+      transition: opacity 0.2s, transform 0.2s !important;
     }
-    .nav-cta:hover { background: var(--ink); color: var(--cream) !important; }
+    .nav-li:hover { opacity: 0.88; transform: translateY(-1px); }
 
-    /* ══════════════════════════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════════════════════════ */
+    /* ══════════ HERO ══════════ */
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
-      padding: 8rem 0 4rem;
-      position: relative;
-      overflow: hidden;
+      padding: 9rem 0 5rem;
+      position: relative; overflow: hidden;
     }
-    .hero-bg-line {
-      position: absolute;
-      top: 0; bottom: 0;
-      right: 22%;
+    .hero-line {
+      position: absolute; top: 0; bottom: 0; right: 18%;
       width: 1px;
-      background: var(--parchment);
-      z-index: 0;
+      background: linear-gradient(to bottom, transparent, var(--parchment) 20%, var(--parchment) 80%, transparent);
     }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 780px;
-    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.75rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 40px; height: 1px;
-      background: var(--terracotta);
+    .hero-eyebrow::before { content:''; width: 36px; height: 1px; background: var(--terracotta); }
+    .avail {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.32rem 0.8rem;
+      background: #D1FAE5; color: #065F46;
+      font-size: 0.69rem; font-weight: 500; letter-spacing: 0.05em;
+      border-radius: 99px;
     }
-    /* EDIT: Your headline */
-    .hero-headline {
+    .avail-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-hl {
       font-family: var(--font-display);
-      font-size: clamp(3.2rem, 7vw, 6rem);
-      font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      margin-bottom: 2rem;
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
     }
-    .hero-headline em {
-      font-style: italic;
-      color: var(--terracotta);
-    }
+    .hero-hl em { font-style: italic; color: var(--terracotta); }
+
     .hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--ink-soft);
-      max-width: 520px;
-      margin-bottom: 3rem;
-      line-height: 1.8;
+      font-size: 1rem; font-weight: 300; color: var(--ink-soft);
+      max-width: 495px; margin-bottom: 2.75rem; line-height: 1.85;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.9rem 2rem;
-      background: var(--ink);
-      color: var(--cream);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      border-radius: 2px;
+
+    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+
+    .btn-email {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.82rem 1.7rem;
+      background: var(--ink); color: var(--cream);
+      font-size: 0.79rem; font-weight: 500; letter-spacing: 0.07em;
+      border-radius: var(--r);
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-primary:hover { background: var(--terracotta); transform: translateY(-2px); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.9rem 2rem;
-      border: 1.5px solid var(--ink-muted);
-      color: var(--ink-soft);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      border-radius: 2px;
+    .btn-email:hover { background: var(--terracotta); transform: translateY(-2px); }
+
+    .btn-li {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.82rem 1.7rem;
+      background: var(--linkedin); color: #fff;
+      font-size: 0.79rem; font-weight: 600; letter-spacing: 0.06em;
+      border-radius: var(--r);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-li:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-work {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.82rem 1.7rem;
+      border: 1.5px solid var(--ink-muted); color: var(--ink-soft);
+      font-size: 0.79rem; font-weight: 500; letter-spacing: 0.07em;
+      border-radius: var(--r);
       transition: border-color 0.2s, color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
-    .hero-scroll-hint {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
+    .btn-work:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%;
       transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
       color: var(--ink-muted);
       animation: bounce 2s infinite;
     }
-    .hero-scroll-hint span { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .hero-scroll span { font-size: 0.65rem; letter-spacing: 0.13em; text-transform: uppercase; }
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-    /* ══════════════════════════════════════════════════════════════
-       ABOUT
-    ══════════════════════════════════════════════════════════════ */
-    #about {
-      padding: var(--section-gap) 0;
+    /* ══════════ FEATURED WORK ══════════ */
+    #work { padding: var(--gap) 0; background: var(--white); }
+
+    .work-hd {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 2.5rem; gap: 2rem; flex-wrap: wrap;
+    }
+    .work-intro {
+      font-size: 0.93rem; color: var(--ink-muted);
+      max-width: 360px; line-height: 1.8;
+    }
+
+    /* Filter tabs */
+    .filters {
+      display: flex;
+      border: 1.5px solid var(--parchment);
+      border-radius: var(--r); overflow: hidden;
+      width: fit-content; margin-bottom: 2.5rem;
+    }
+    .f-btn {
+      padding: 0.48rem 1.15rem;
+      font-size: 0.74rem; font-weight: 500; letter-spacing: 0.07em;
+      color: var(--ink-muted); background: var(--white);
+      border: none; cursor: pointer;
+      border-right: 1px solid var(--parchment);
+      transition: background 0.18s, color 0.18s;
+    }
+    .f-btn:last-child { border-right: none; }
+    .f-btn.on, .f-btn:hover { background: var(--ink); color: var(--cream); }
+
+    /* Grid */
+    .work-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px; background: var(--parchment);
+      border: 1.5px solid var(--parchment); border-radius: 4px; overflow: hidden;
+    }
+
+    /* Card */
+    .wcard {
       background: var(--white);
+      padding: 1.9rem 1.75rem;
+      display: flex; flex-direction: column;
+      position: relative;
+      transition: background 0.22s;
     }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 5rem;
-      align-items: start;
+    .wcard::before {
+      content:''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 0;
+      background: var(--terracotta);
+      transition: width 0.22s;
     }
-    .about-left {}
-    .section-number {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      color: var(--ink-muted);
-      margin-bottom: 0.4rem;
+    .wcard:hover { background: var(--cream); }
+    .wcard:hover::before { width: 3px; }
+
+    .wcard-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.9rem;
     }
-    .section-title {
+    .wcard-type {
+      font-family: var(--font-mono); font-size: 0.63rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.18rem 0.55rem; border-radius: 2px;
+    }
+    .t-article  { background: #EFF6FF; color: #1D4ED8; }
+    .t-campaign { background: var(--terra-pale); color: var(--terracotta); }
+    .t-case     { background: #F0FDF4; color: #15803D; }
+    .t-video    { background: #FDF4FF; color: #7E22CE; }
+
+    .wcard-date { font-family: var(--font-mono); font-size: 0.63rem; color: var(--ink-muted); }
+
+    .wcard-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
+      font-size: 1.28rem; font-weight: 600; line-height: 1.22;
+      margin-bottom: 0.6rem; color: var(--ink);
+    }
+    .wcard-excerpt {
+      font-size: 0.83rem; color: var(--ink-soft);
+      line-height: 1.72; flex: 1; margin-bottom: 1.2rem;
+    }
+    .wcard-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--parchment);
+      margin-top: auto;
+    }
+    .wcard-platform {
+      font-size: 0.73rem; color: var(--ink-muted);
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .wcard-platform::before { content:''; width: 14px; height: 1px; background: var(--ink-muted); }
+    .wcard-link {
+      font-size: 0.73rem; font-weight: 500; letter-spacing: 0.05em;
+      color: var(--terracotta);
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .wcard-link:hover { gap: 0.5rem; }
+
+    /* ══════════ ABOUT ══════════ */
+    #about { padding: var(--gap) 0; background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 5rem; align-items: start;
     }
     .about-portrait {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--parchment);
-      border-radius: 3px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--parchment); border-radius: var(--r);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
       position: relative;
     }
-    /* EDIT: Replace this block with your <img> tag */
-    .portrait-placeholder {
+    .portrait-ph {
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
       color: var(--ink-muted);
     }
-    .portrait-placeholder svg { opacity: 0.3; }
-    .portrait-placeholder p { font-size: 0.75rem; letter-spacing: 0.06em; }
+    .portrait-ph svg { opacity: 0.3; }
+    .portrait-ph p { font-size: 0.72rem; letter-spacing: 0.06em; }
+    .portrait-badge {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
+      background: rgba(28,25,23,0.84); backdrop-filter: blur(8px);
+      padding: 0.7rem 0.9rem; border-radius: var(--r); color: white;
+    }
+    .pb-role { font-size: 0.76rem; font-weight: 500; display: block; margin-bottom: 0.1rem; }
+    .pb-co   { font-size: 0.65rem; color: rgba(255,255,255,0.58); font-family: var(--font-mono); }
+
     .about-right p {
-      font-size: 1.02rem;
-      color: var(--ink-soft);
-      line-height: 1.85;
-      margin-bottom: 1.5rem;
+      font-size: 0.98rem; color: var(--ink-soft); line-height: 1.88; margin-bottom: 1.4rem;
     }
     .about-right p strong { color: var(--ink); font-weight: 500; }
-    .about-tags {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      margin-top: 2rem;
-    }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 0.42rem; margin-top: 1.6rem; }
     .tag {
-      padding: 0.35rem 0.9rem;
-      background: var(--terra-pale);
-      color: var(--terracotta);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      padding: 0.28rem 0.75rem;
+      background: var(--terra-pale); color: var(--terracotta);
+      font-size: 0.71rem; font-weight: 500; letter-spacing: 0.05em;
       border-radius: 2px;
     }
-
-    /* ══════════════════════════════════════════════════════════════
-       EXPERTISE
-    ══════════════════════════════════════════════════════════════ */
-    #expertise {
-      padding: var(--section-gap) 0;
-      background: var(--cream);
-    }
-    .expertise-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 4rem;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .expertise-intro {
-      font-size: 1rem;
-      color: var(--ink-muted);
-      max-width: 420px;
-      line-height: 1.8;
-    }
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--parchment);
-      border: 1.5px solid var(--parchment);
-    }
-    .expertise-card {
-      background: var(--cream);
-      padding: 2.5rem 2rem;
-      transition: background 0.25s;
-    }
-    .expertise-card:hover { background: var(--terra-pale); }
-    .card-icon {
-      width: 42px; height: 42px;
-      margin-bottom: 1.5rem;
-      color: var(--terracotta);
-    }
-    .card-title {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .card-body {
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-      line-height: 1.75;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       EXPERIENCE
-    ══════════════════════════════════════════════════════════════ */
-    #experience {
-      padding: var(--section-gap) 0;
-      background: var(--ink);
-      color: var(--cream);
-    }
-    #experience .section-title { color: var(--cream); }
-    #experience .label { color: var(--gold); }
-    .experience-header { margin-bottom: 4rem; }
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-    }
-    .timeline-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .timeline-meta { padding-top: 0.2rem; }
-    .timeline-year {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.3rem;
-    }
-    .timeline-company {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
-    }
-    .timeline-role {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 300;
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-    .timeline-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.8;
-      max-width: 560px;
-    }
-    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-    .timeline-tag {
-      padding: 0.25rem 0.7rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.45);
-      border-radius: 2px;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       CONTACT & QR CODE
-    ══════════════════════════════════════════════════════════════ */
-    #contact {
-      padding: var(--section-gap) 0;
-      background: var(--cream);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .contact-left .section-title { margin-bottom: 1rem; }
-    .contact-desc {
-      font-size: 1rem;
-      color: var(--ink-soft);
-      line-height: 1.85;
-      margin-bottom: 2.5rem;
-      max-width: 460px;
-    }
-    /* EDIT: Replace with your real email */
-    .email-display {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.5vw, 1.7rem);
-      font-weight: 300;
-      color: var(--ink);
-      border-bottom: 1.5px solid var(--terracotta);
-      padding-bottom: 0.3rem;
-      transition: color 0.2s;
-    }
-    .email-display:hover { color: var(--terracotta); }
-    .email-icon { color: var(--terracotta); flex-shrink: 0; }
-    .social-links { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .social-link {
+    .btn-about-li {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
-      border: 1px solid var(--parchment);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--ink-soft);
-      border-radius: 2px;
+      margin-top: 1.65rem;
+      padding: 0.62rem 1.35rem;
+      background: var(--linkedin); color: #fff;
+      font-size: 0.79rem; font-weight: 600; letter-spacing: 0.05em;
+      border-radius: var(--r);
+      transition: opacity 0.2s;
+    }
+    .btn-about-li:hover { opacity: 0.88; }
+
+    /* ══════════ EXPERIENCE ══════════ */
+    #experience { padding: var(--gap) 0; background: var(--ink); color: var(--cream); }
+    #experience .sec-title { color: var(--cream); }
+    .exp-hd {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3.5rem; gap: 2rem; flex-wrap: wrap;
+    }
+    .exp-li-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.58rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--r);
+      font-size: 0.77rem; color: rgba(255,255,255,0.5);
       transition: border-color 0.2s, color 0.2s;
     }
-    .social-link:hover { border-color: var(--terracotta); color: var(--terracotta); }
+    .exp-li-link:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
 
-    /* QR PANEL */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid; grid-template-columns: 175px 1fr;
+      gap: 2.5rem; padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .tl-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .tl-year { font-family: var(--font-mono); font-size: 0.74rem; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.22rem; }
+    .tl-co   { font-size: 0.78rem; color: rgba(255,255,255,0.42); font-weight: 300; }
+    .tl-role { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; margin-bottom: 0.55rem; line-height: 1.2; }
+    .tl-desc { font-size: 0.85rem; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 540px; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.32rem; margin-top: 0.8rem; }
+    .tl-tag  {
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.67rem; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35); border-radius: 2px;
+    }
+
+    /* ══════════ NEXT CHAPTER ══════════ */
+    #next { padding: var(--gap) 0; background: var(--terra-pale); }
+    .next-hd { margin-bottom: 2.75rem; }
+    .next-hd .sec-title em { font-style: italic; color: var(--terracotta); }
+    .next-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px; background: rgba(196,98,45,0.18);
+      border: 1.5px solid rgba(196,98,45,0.18); border-radius: 4px; overflow: hidden;
+    }
+    .next-card { background: var(--white); padding: 1.7rem 1.5rem; }
+    .next-card.dark { background: var(--ink); }
+    .next-time { font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.14em; color: var(--terracotta); margin-bottom: 0.6rem; }
+    .next-card.dark .next-time { color: var(--gold); }
+    .next-ttl { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .next-card.dark .next-ttl { color: var(--cream); }
+    .next-desc { font-size: 0.81rem; color: var(--ink-soft); line-height: 1.7; }
+    .next-card.dark .next-desc { color: rgba(255,255,255,0.52); }
+
+    /* ══════════ CONTACT ══════════ */
+    #contact { padding: var(--gap) 0; background: var(--cream); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .contact-desc {
+      font-size: 0.97rem; color: var(--ink-soft); line-height: 1.88;
+      margin-bottom: 2rem; max-width: 400px;
+    }
+    .contact-channels { display: flex; flex-direction: column; gap: 0.8rem; }
+    .c-item {
+      display: flex; align-items: center; gap: 0.9rem;
+      padding: 0.95rem 1.2rem;
+      background: var(--white); border: 1.5px solid var(--parchment);
+      border-radius: var(--r);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .c-item:hover { border-color: var(--terracotta); transform: translateX(4px); }
+    .c-item.c-li { background: var(--linkedin); border-color: var(--linkedin); }
+    .c-item.c-li:hover { opacity: 0.9; border-color: var(--linkedin); }
+    .c-lbl  { font-size: 0.66rem; font-family: var(--font-mono); letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.08rem; }
+    .c-item.c-li .c-lbl { color: rgba(255,255,255,0.65); }
+    .c-val  { font-weight: 500; font-size: 0.86rem; color: var(--ink); }
+    .c-item.c-li .c-val { color: #fff; }
+
+    /* QR */
     .qr-panel {
-      background: var(--white);
-      border: 1.5px solid var(--parchment);
-      border-radius: 6px;
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.2rem;
+      background: var(--white); border: 1.5px solid var(--parchment);
+      border-radius: 6px; padding: 2.25rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.9rem;
     }
-    .qr-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-family: var(--font-mono);
-    }
-    #qrcode {
-      display: flex; justify-content: center;
-      padding: 0.5rem;
-    }
-    #qrcode canvas, #qrcode img {
-      border-radius: 4px;
-    }
-    .qr-caption {
-      font-size: 0.82rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
+    .qr-lbl { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); }
+    #qrcode { display: flex; justify-content: center; padding: 0.4rem; }
+    #qrcode canvas, #qrcode img { border-radius: 3px; }
+    .qr-cap { font-size: 0.79rem; color: var(--ink-muted); line-height: 1.6; }
     .qr-url {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      word-break: break-all;
-      background: var(--parchment);
-      padding: 0.4rem 0.8rem;
-      border-radius: 3px;
-      width: 100%;
+      font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);
+      word-break: break-all; background: var(--parchment);
+      padding: 0.38rem 0.7rem; border-radius: 3px; width: 100%;
     }
-    .available-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.4rem 0.9rem;
-      background: #D1FAE5;
-      color: #065F46;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      border-radius: 99px;
-    }
-    .badge-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #10B981;
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    /* ══════════════════════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════════════════ */
+    /* ══════════ FOOTER ══════════ */
     footer {
       border-top: 1px solid var(--parchment);
-      padding: 2rem 0;
-      background: var(--cream);
+      padding: 1.75rem 0; background: var(--cream);
     }
     footer .container {
       display: flex; align-items: center; justify-content: space-between;
       gap: 1rem; flex-wrap: wrap;
     }
-    footer p {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-    }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      transition: color 0.2s;
-    }
+    footer p { font-size: 0.74rem; color: var(--ink-muted); }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-links a { font-size: 0.74rem; color: var(--ink-muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--terracotta); }
 
-    /* ══════════════════════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-portrait { max-width: 280px; aspect-ratio: 1/1; }
-      .expertise-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .nav-links { gap: 1rem; }
+    /* ══════════ RESPONSIVE ══════════ */
+    @media (max-width: 980px) {
+      .work-grid { grid-template-columns: repeat(2,1fr); }
+      .next-grid { grid-template-columns: repeat(2,1fr); }
     }
-    @media (max-width: 600px) {
-      :root { --section-gap: 4.5rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero-headline { font-size: 2.8rem; }
-      .expertise-header { flex-direction: column; align-items: flex-start; }
+    @media (max-width: 840px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-portrait { max-width: 260px; aspect-ratio: 1/1; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-hd { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 620px) {
+      :root { --gap: 4rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .next-grid { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-li) { display: none; }
+      .hero-hl { font-size: 2.75rem; }
+      .work-hd { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ══════════ NAVIGATION ══════════ -->
-  <nav id="navbar">
-    <div class="container">
-      <!-- EDIT: Your initials or short name -->
-      <div class="nav-name">Susan Jiayi YAO</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#experience">Experience</a>
-        <!-- EDIT: Replace with your real email -->
-        <a href="mailto:your.email@example.com" class="nav-cta">Get in Touch</a>
-      </div>
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-name">Susan Jiayi YAO</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <!-- EDIT: Your LinkedIn URL -->
+      <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="nav-li">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- ══════════ HERO ══════════ -->
-  <section id="hero">
-    <div class="hero-bg-line" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-eyebrow reveal">
-          <!-- EDIT: Your availability status -->
-          <span class="available-badge"><span class="badge-dot"></span> Open to opportunities</span>
-        </div>
-
-        <!-- EDIT: Your headline — make it memorable -->
-        <h1 class="hero-headline reveal">
-          Telling stories<br>
-          that <em>move</em><br>
-          markets.
-        </h1>
-
-        <!-- EDIT: Your one-liner pitch -->
-        <p class="hero-sub reveal">
-          Communications journalist and Global digital marketing professional with experience in cross-border communication and overseas brand promotion across the new
-          energy and AI industries. 
-          Relocating to Germany in October 2026. Available for roles starting immediately — eager to bring fresh 
-          perspective and grow within European work culture before beginning my Master's in 2027.
-        </p>
-
-        <div class="hero-actions reveal">
-          <!-- EDIT: Replace with your real email -->
-          <a href="mailto:susanya02025@gmail.com" class="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Send me an email
-          </a>
-          <a href="#about" class="btn-secondary">
-            View my work ↓
-          </a>
-        </div>
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="hero">
+  <div class="hero-line" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow rv">
+        <span class="avail"><span class="avail-dot"></span> Open to opportunities in Europe</span>
       </div>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-      <span>scroll</span>
-    </div>
-  </section>
-
-  <!-- ══════════ ABOUT ══════════ -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-
-        <div class="about-left reveal">
-          <!-- EDIT: Replace with your photo: <img src="photo.jpg" alt="Your Name" style="width:100%;height:100%;object-fit:cover;" /> -->
-          <div class="about-portrait">
-            <div class="portrait-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-              <p>Add your photo</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-right">
-          <div class="reveal">
-            <p class="section-number">01 / About</p>
-            <h2 class="section-title">The story<br>behind the work.</h2>
-          </div>
-          <!-- EDIT: Write your own bio here — 2–3 short paragraphs -->
-          <p class="reveal">
-            I started out as a <strong>communication journalism student</strong>,
-            learning how to find the right words for the right audience.
-            That foundation led me straight into tech — where I discovered
-            that great marketing is just great storytelling with better metrics.
-          </p>
-          <p class="reveal">
-            I've spent the last few years working as a <strong>marketing professional
-            in tech companies</strong>, running campaigns, managing content strategy,
-            and building brand voices from the ground up. I thrive where
-            editorial instinct meets analytical thinking.
-          </p>
-          <p class="reveal">
-            Now I'm looking for my next challenge — a role where communication
-            and creativity drive real business impact.
-          </p>
-          <!-- EDIT: Add/remove your key strengths -->
-          <div class="about-tags reveal">
-            <span class="tag">Content Strategy</span>
-             <span class="tag">AI Tools</span>
-            <span class="tag">Brand Storytelling</span>
-            <span class="tag">Tech Marketing</span>
-            <span class="tag">Journalism</span>
-            <span class="tag">Copywriting</span>
-            <span class="tag">Social Media</span>
-            <span class="tag">Campaign Management</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ EXPERTISE ══════════ -->
-  <section id="expertise">
-    <div class="container">
-      <div class="expertise-header reveal">
-        <div>
-          <p class="section-number">02 / Expertise</p>
-          <h2 class="section-title">What I bring<br>to the table.</h2>
-        </div>
-        <p class="expertise-intro">
-          A rare mix of journalistic rigor and marketing agility.
-          I create content that earns trust and drives action.
-        </p>
-      </div>
-
-      <!-- EDIT: Customize each card with your actual expertise -->
-      <div class="expertise-grid">
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-          <h3 class="card-title">Content Strategy</h3>
-          <p class="card-body">
-            Building editorial calendars, tone-of-voice guides, and multi-channel
-            content plans that keep audiences engaged and brands consistent.
-          </p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <h3 class="card-title">Brand Communication</h3>
-          <p class="card-body">
-            Crafting compelling narratives that position tech products in a crowded
-            market — from press releases to product storytelling and thought leadership.
-          </p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <h3 class="card-title">Digital Marketing</h3>
-          <p class="card-body">
-            Managing paid and organic campaigns across LinkedIn, Instagram, and Google.
-            Translating performance data into smarter creative decisions.
-          </p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <h3 class="card-title">Audience Research</h3>
-          <p class="card-body">
-            Conducting interviews, analyzing survey data, and building user personas
-            to ensure every message lands with the right people.
-          </p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <h3 class="card-title">Editorial Writing</h3>
-          <p class="card-body">
-            Long-form articles, newsletters, and interviews with a journalistic eye
-            for clarity, accuracy, and narrative structure that keeps readers engaged.
-          </p>
-        </div>
-
-        <div class="expertise-card reveal">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <h3 class="card-title">Media Relations</h3>
-          <p class="card-body">
-            Building journalist relationships, writing pitches, and managing
-            press coverage for product launches and company milestones.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ EXPERIENCE ══════════ -->
-  <section id="experience">
-    <div class="container">
-      <div class="experience-header">
-        <p class="label reveal">03 / Experience</p>
-        <h2 class="section-title reveal">Where I've<br>done the work.</h2>
-      </div>
-
-      <!-- EDIT: Add your real jobs here — duplicate or remove .timeline-item blocks -->
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <div class="timeline-meta">
-            <p class="timeline-year">2025.05 – Present</p>
-            <p class="timeline-company">Growatt New Energy</p>
-          </div>
-          <div>
-            <h3 class="timeline-role">Global Brand Marketing Specialist</h3>
-            <p class="timeline-desc">
-              ◼ Owned global social media operations, delivering content posts across LinkedIn, Facebook, Instagram, X and YouTube, covering strategy, content creating, copywriting, publishing, and community engagement.
-              ◼ Led global content campaigns across newsletters, blogs, and press releases, while managing SEO optimization and Meta ad campaigns to ensure consistent brand messaging across international markets.
-              ◼ Managed cross-regional communication, collaborating with teams in Europe, Australia, Americas, APAC, MENA to localize and distribute digital content.
-            </p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Content Strategy</span>
-              <span class="timeline-tag">Campaign Management</span>
-              <span class="timeline-tag">Marketing Customer Service Team</span>
-              <span class="timeline-tag">Analytics</span>
-              <span class="timeline-tag">Energy, Manufacturing</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-meta">
-            <p class="timeline-year">2024.08 – 2025.03</p>
-            <p class="timeline-company">TAL Education Group</p>
-          </div>
-          <div>
-            <h3 class="timeline-role">Market Channel Specialist</h3>
-            <p class="timeline-desc">
-              ◼ Built and operated a multi-platform social media matrix from scratch, including WeChat Official Accounts, Video Accounts, Douyin (Chinese TikTok), and Rednote (Xiaohongshu).
-              ◼ Drove community traffic growth and user engagement across platforms; managed Enterprise WeChat communities with weekly content publishing and marketing support.
-            </p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">High School Division</span>
-              <span class="timeline-tag">Education</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-meta">
-            <p class="timeline-year">2023.06 – 2024.05</p>
-            <p class="timeline-company">Laiye</p>
-          </div>
-          <div>
-            <h3 class="timeline-role">Marketing Specialist Full-time Intern</h3>
-            <p class="timeline-desc">
-              ◼ Managed social media and official website operations, including LinkedIn, YouTube, WeChat Official Account, and Chinese & English corporate websites; Independently produced bilingual corporate content, including promotional materials and client case studies.
-              ◼ Supported marketing and brand events (product launches, anniversaries, webinars), handling theme planning, content development, scheduling, design coordination, publishing, and collaboration with third- party vendors and overseas (France and HK) teams.
-            </p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Strategy & Category Department</span>
-              <span class="timeline-tag">Artificial Intelligence</span>
-              <span class="timeline-tag">Digital Media</span>
-            </div>
-          </div>
-        </div>
-
-          <div class="timeline-item reveal">
-          <div class="timeline-meta">
-            <p class="timeline-year">2021.07 - 2021.10</p>
-            <p class="timeline-company">China Daily</p>
-          </div>
-          <div>
-            <h3 class="timeline-role">Video Editor Intern</h3>
-            <p class="timeline-desc">
-              ◼ Edited news and interview videos for digital platforms; researched trending news topics and proposed content ideas for social media channels; translated English subtitles and scripts for video content.
-            </p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Newspaper Publishing</span>
-              <span class="timeline-tag">New Media Department</span>
-              <span class="timeline-tag">Email Marketing</span>
-              <span class="timeline-tag">Analytics</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-    <!-- ══════════ NEXT CHAPTER ══════════ -->
-  <section id="next" style="padding: var(--section-gap) 0; background: var(--terra-pale);">
-    <div class="container">
-      <div class="reveal" style="margin-bottom: 3rem;">
-        <p class="section-number">04 / What's Next</p>
-        <h2 class="section-title">A new chapter<br>in <em style="font-style:italic;color:var(--terracotta);">Europe.</em></h2>
-      </div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5px; background: var(--parchment); border: 1.5px solid var(--parchment);">
-
-        <div class="reveal" style="background:var(--white); padding: 2rem 1.8rem;">
-          <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;color:var(--terracotta);margin-bottom:0.75rem;">NOW — OCT 2026</p>
-          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;">IELTS Preparation</p>
-          <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.75;">Studying for the IELTS exam as part of my German university application process, while actively job hunting.</p>
-        </div>
-
-        <div class="reveal" style="background:var(--white); padding: 2rem 1.8rem;">
-          <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;color:var(--terracotta);margin-bottom:0.75rem;">OCTOBER 2026</p>
-          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;">Moving to Germany </p>
-          <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.75;">Relocating from China to Germany. Ready to join a team, learn European work culture, and start making an impact.</p>
-        </div>
-
-        <div class="reveal" style="background:var(--white); padding: 2rem 1.8rem;">
-          <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;color:var(--terracotta);margin-bottom:0.75rem;">OCT 2026 — SEP 2027</p>
-          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;">Working in Europe</p>
-          <p style="font-size:0.85rem;color:var(--ink-soft);line-height:1.75;">Available full-time for a marketing or communications role. Eager to grow, contribute, and integrate into a new professional environment.</p>
-        </div>
-
-        <div class="reveal" style="background: var(--ink); padding: 2rem 1.8rem;">
-          <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;color:var(--gold);margin-bottom:0.75rem;">SEPTEMBER 2027</p>
-          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;color:var(--cream);">Master's Degree</p>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.75;">Beginning a Master's program in Germany — combining academic depth with real professional experience already gained.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ CONTACT + QR CODE ══════════ -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-
-        <div class="contact-left">
-          <p class="section-number reveal">04 / Contact</p>
-          <h2 class="section-title reveal">Let's work<br>together.</h2>
-          <p class="contact-desc reveal">
-            I'm actively looking for new opportunities in marketing,
-            communications, or content strategy. Whether you have a role,
-            a project, or just want to connect — my inbox is open.
-          </p>
-
-          <!-- EDIT: Replace with your real email address -->
-          <a href="mailto:your.email@example.com" class="email-display reveal">
-            <svg class="email-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            susanyao2025@gmail.com
-          </a>
-
-          <!-- EDIT: Add your real LinkedIn and other profiles -->
-          <div class="social-links reveal">
-            <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="social-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <!-- Add more links as needed -->
-          </div>
-        </div>
-
-        <!-- QR CODE PANEL — auto-generates from your page URL -->
-        <div class="qr-panel reveal">
-          <span class="qr-label"> QR-Code to Scan to visit this page</span>
-          <div id="qrcode"></div>
-          <p class="qr-caption">
-            Share this code at networking events, on your business card,
-            or in your email signature — it links directly here.
-          </p>
-          <p class="qr-url" id="qr-url-display"></p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer>
-    <div class="container">
-      <!-- EDIT: Your name -->
-      <p>© <span id="year"></span> Susan Yao. Built on GitHub Pages.</p>
-      <div class="footer-links">
-        <a href="#hero">Back to top ↑</a>
+      <h1 class="hero-hl rv">
+        Telling stories<br>that <em>move</em><br>markets.
+      </h1>
+      <!-- EDIT: Adjust your one-liner -->
+      <p class="hero-sub rv">
+        Communications journalist turned global marketing professional — cross-border campaigns
+        across energy and AI industries. Relocating to Germany in October 2026, available immediately.
+      </p>
+      <div class="hero-actions rv">
         <!-- EDIT: Your email -->
-        <a href="mailto:susanyao2025@gmail.com">susanyao2025@gmail.com</a>
+        <a href="mailto:susanyao2025@gmail.com" class="btn-email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email me
+        </a>
+        <!-- EDIT: Your LinkedIn URL -->
+        <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="btn-li">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          View LinkedIn Profile
+        </a>
+        <a href="#work" class="btn-work">See my work ↓</a>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    <span>scroll</span>
+  </div>
+</section>
 
-  <!-- ══════════ SCRIPTS ══════════ -->
-  <script>
-    // ── Year ──────────────────────────────────────────────────
-    document.getElementById('year').textContent = new Date().getFullYear();
+<!-- ══════════════════════ FEATURED WORK ══════════════════════ -->
+<section id="work">
+  <div class="container">
 
-    // ── Sticky nav ───────────────────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    <div class="work-hd rv">
+      <div>
+        <p class="sec-num">01 / Featured Work</p>
+        <h2 class="sec-title">Articles, campaigns<br>&amp; projects.</h2>
+      </div>
+      <p class="work-intro">
+        Writing, campaigns, and content strategy across global tech
+        and energy brands — click any card to read or view.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filters rv">
+      <button class="f-btn on" data-filter="all">All</button>
+      <button class="f-btn" data-filter="article">Articles</button>
+      <button class="f-btn" data-filter="campaign">Campaigns</button>
+      <button class="f-btn" data-filter="case">Case Studies</button>
+      <button class="f-btn" data-filter="video">Video</button>
+    </div>
+
+    <!--
+      ╔══════════════════════════════════════════════════════════╗
+      ║  EDIT: Replace placeholder cards with your real work.   ║
+      ║  For each .wcard:                                        ║
+      ║   • data-type: "article" | "campaign" | "case" | "video"║
+      ║   • Replace href="#" with your real URL, PDF, or Notion ║
+      ║   • Duplicate or remove cards freely                    ║
+      ╚══════════════════════════════════════════════════════════╝
+    -->
+    <div class="work-grid rv">
+
+      <!-- Card 1 -->
+      <div class="wcard" data-type="article">
+        <div class="wcard-meta">
+          <span class="wcard-type t-article">Article</span>
+          <span class="wcard-date">2025</span>
+        </div>
+        <h3 class="wcard-title">How Solar Brands Win on LinkedIn: A Content Strategy Breakdown</h3>
+        <p class="wcard-excerpt">
+          An editorial analysis of what separates effective B2B social content in
+          the renewable energy sector — with insights from Growatt's global channels.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">Growatt Blog</span>
+          <a href="#" class="wcard-link">Read article →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="wcard" data-type="campaign">
+        <div class="wcard-meta">
+          <span class="wcard-type t-campaign">Campaign</span>
+          <span class="wcard-date">2025</span>
+        </div>
+        <h3 class="wcard-title">Global Product Launch: Multi-Region Social Media Campaign</h3>
+        <p class="wcard-excerpt">
+          End-to-end content campaign for a new energy storage product launch — coordinating
+          messaging across Europe, Americas, APAC, and MENA simultaneously.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">Growatt New Energy</span>
+          <a href="#" class="wcard-link">View campaign →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="wcard" data-type="case">
+        <div class="wcard-meta">
+          <span class="wcard-type t-case">Case Study</span>
+          <span class="wcard-date">2024</span>
+        </div>
+        <h3 class="wcard-title">Building a B2B Social Presence from Zero: Laiye AI</h3>
+        <p class="wcard-excerpt">
+          How I grew Laiye's bilingual LinkedIn and WeChat presence from scratch —
+          strategy, content formats, bilingual copywriting, and measurable results.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">Laiye</span>
+          <a href="#" class="wcard-link">Read case study →</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="wcard" data-type="campaign">
+        <div class="wcard-meta">
+          <span class="wcard-type t-campaign">Campaign</span>
+          <span class="wcard-date">2024</span>
+        </div>
+        <h3 class="wcard-title">WeChat &amp; Douyin Community Growth: Education Marketing</h3>
+        <p class="wcard-excerpt">
+          Built a multi-platform social matrix for TAL Education's high school division,
+          driving community traffic and weekly engagement from the ground up.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">TAL Education Group</span>
+          <a href="#" class="wcard-link">View work →</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="wcard" data-type="article">
+        <div class="wcard-meta">
+          <span class="wcard-type t-article">Article</span>
+          <span class="wcard-date">2024</span>
+        </div>
+        <h3 class="wcard-title">Localizing Tech Content for Europe: What Chinese Brands Get Wrong</h3>
+        <p class="wcard-excerpt">
+          A practical guide to the cultural and linguistic gaps that undermine international
+          B2B marketing — from firsthand experience at an AI startup expanding into France.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">Personal / Medium</span>
+          <a href="#" class="wcard-link">Read article →</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="wcard" data-type="video">
+        <div class="wcard-meta">
+          <span class="wcard-type t-video">Video</span>
+          <span class="wcard-date">2021</span>
+        </div>
+        <h3 class="wcard-title">News &amp; Interview Video Editing for Digital Platforms</h3>
+        <p class="wcard-excerpt">
+          Edited and subtitled news and interview content for China Daily's digital channels —
+          managing the full pipeline from research and translation to publish.
+        </p>
+        <div class="wcard-foot">
+          <span class="wcard-platform">China Daily</span>
+          <a href="#" class="wcard-link">View samples →</a>
+        </div>
+      </div>
+
+    </div><!-- /work-grid -->
+  </div>
+</section>
+
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="rv">
+        <!-- EDIT: Replace with <img src="your-photo.jpg" alt="Susan Yao" style="width:100%;height:100%;object-fit:cover;"> -->
+        <div class="about-portrait">
+          <div class="portrait-ph">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            <p>Add your photo</p>
+          </div>
+          <div class="portrait-badge">
+            <span class="pb-role">Global Brand Marketing Specialist</span>
+            <span class="pb-co">Growatt New Energy · 2025 – Present</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="rv">
+          <p class="sec-num">02 / About</p>
+          <h2 class="sec-title">The story<br>behind the work.</h2>
+        </div>
+        <!-- EDIT: Your bio -->
+        <p class="rv">
+          I started out as a <strong>communications journalism student</strong>, learning
+          how to find the right words for the right audience. That foundation led me straight
+          into tech — where I discovered great marketing is great storytelling with better metrics.
+        </p>
+        <p class="rv">
+          I've spent the last few years as a <strong>global marketing professional</strong>
+          in new energy and AI companies — running campaigns, managing bilingual content strategy,
+          and coordinating with teams across Europe, APAC, and the Americas. I thrive where
+          editorial instinct meets analytical thinking.
+        </p>
+        <!-- EDIT: Add/remove your key strengths -->
+        <div class="about-tags rv">
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Brand Storytelling</span>
+          <span class="tag">Cross-border Marketing</span>
+          <span class="tag">AI Tools</span>
+          <span class="tag">Copywriting EN/ZH</span>
+          <span class="tag">Social Media</span>
+          <span class="tag">Campaign Management</span>
+          <span class="tag">Media Relations</span>
+        </div>
+        <!-- EDIT: Your LinkedIn URL -->
+        <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="btn-about-li rv">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+<section id="experience">
+  <div class="container">
+    <div class="exp-hd">
+      <div>
+        <p class="lbl rv">03 / Experience</p>
+        <h2 class="sec-title rv">Where I've<br>done the work.</h2>
+      </div>
+      <!-- EDIT: Your LinkedIn URL -->
+      <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="exp-li-link rv">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Full profile on LinkedIn ↗
+      </a>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item rv">
+        <div>
+          <p class="tl-year">2025.05 – Present</p>
+          <p class="tl-co">Growatt New Energy</p>
+        </div>
+        <div>
+          <h3 class="tl-role">Global Brand Marketing Specialist</h3>
+          <p class="tl-desc">
+            Owned global social media operations across LinkedIn, Facebook, Instagram, X and YouTube.
+            Led cross-regional content campaigns — newsletters, blogs, press releases — coordinating
+            with Europe, Australia, Americas, APAC and MENA teams.
+          </p>
+          <div class="tl-tags">
+            <span class="tl-tag">Global Social Media</span>
+            <span class="tl-tag">Content Strategy</span>
+            <span class="tl-tag">SEO</span>
+            <span class="tl-tag">Meta Ads</span>
+            <span class="tl-tag">New Energy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rv">
+        <div>
+          <p class="tl-year">2024.08 – 2025.03</p>
+          <p class="tl-co">TAL Education Group</p>
+        </div>
+        <div>
+          <h3 class="tl-role">Market Channel Specialist</h3>
+          <p class="tl-desc">
+            Built a multi-platform social media matrix from scratch — WeChat, Douyin, and Rednote.
+            Drove community growth and weekly engagement across all channels.
+          </p>
+          <div class="tl-tags">
+            <span class="tl-tag">WeChat</span>
+            <span class="tl-tag">Douyin</span>
+            <span class="tl-tag">Community Growth</span>
+            <span class="tl-tag">Education</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rv">
+        <div>
+          <p class="tl-year">2023.06 – 2024.05</p>
+          <p class="tl-co">Laiye</p>
+        </div>
+        <div>
+          <h3 class="tl-role">Marketing Specialist</h3>
+          <p class="tl-desc">
+            Managed bilingual social and website operations (EN/ZH). Produced corporate content and
+            case studies independently. Supported product launches and webinars with teams in France and Hong Kong.
+          </p>
+          <div class="tl-tags">
+            <span class="tl-tag">Bilingual Content</span>
+            <span class="tl-tag">LinkedIn</span>
+            <span class="tl-tag">Event Marketing</span>
+            <span class="tl-tag">AI Industry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item rv">
+        <div>
+          <p class="tl-year">2021.07 – 2021.10</p>
+          <p class="tl-co">China Daily</p>
+        </div>
+        <div>
+          <h3 class="tl-role">Video Editor Intern</h3>
+          <p class="tl-desc">
+            Edited news and interview videos for digital platforms. Researched trending topics and
+            translated English subtitles and scripts for published video content.
+          </p>
+          <div class="tl-tags">
+            <span class="tl-tag">Video Editing</span>
+            <span class="tl-tag">News Media</span>
+            <span class="tl-tag">Translation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ NEXT CHAPTER ══════════════════════ -->
+
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="sec-num rv">05 / Contact</p>
+        <h2 class="sec-title rv">Let's work<br>together.</h2>
+        <p class="contact-desc rv">
+          I'm actively looking for roles in marketing, communications, or content strategy.
+          Have a role, a project, or just want to connect? Reach out below.
+        </p>
+        <div class="contact-channels rv">
+          <!-- EDIT: Your email -->
+          <a href="mailto:susanyao2025@gmail.com" class="c-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;color:var(--terracotta)"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <div>
+              <p class="c-lbl">Email</p>
+              <p class="c-val">susanyao2025@gmail.com</p>
+            </div>
+          </a>
+          <!-- EDIT: Your LinkedIn URL -->
+          <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank" class="c-item c-li">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <div>
+              <p class="c-lbl">LinkedIn</p>
+              <p class="c-val">linkedin.com/in/susan-yao-0a4107368</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="qr-panel rv">
+        <span class="qr-lbl">Scan to visit this page</span>
+        <div id="qrcode"></div>
+        <p class="qr-cap">Share at networking events, on business cards, or in email signatures.</p>
+        <p class="qr-url" id="qr-url-display"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="container">
+    <p>© <span id="yr"></span> Susan Yao · Communications &amp; Marketing</p>
+    <div class="footer-links">
+      <a href="#hero">Back to top ↑</a>
+      <!-- EDIT: Your LinkedIn URL -->
+      <a href="http://www.linkedin.com/in/susan-yao-0a4107368" target="_blank">LinkedIn</a>
+      <a href="mailto:susanyao2025@gmail.com">susanyao2025@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Sticky nav
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('vis'), i * 55);
+        obs.unobserve(e.target);
+      }
     });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-    // ── Scroll reveal ────────────────────────────────────────
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
-
-    // ── QR Code ──────────────────────────────────────────────
-    window.addEventListener('load', () => {
-      const pageUrl = window.location.href.split('#')[0]; // Clean URL
-      document.getElementById('qr-url-display').textContent = pageUrl;
-
-      new QRCode(document.getElementById('qrcode'), {
-        text: pageUrl,
-        width: 180,
-        height: 180,
-        colorDark: '#1C1917',
-        colorLight: '#FFFFFF',
-        correctLevel: QRCode.CorrectLevel.H
+  // Work filters
+  const fbtns = document.querySelectorAll('.f-btn');
+  const cards = document.querySelectorAll('.wcard');
+  fbtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      fbtns.forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        const show = f === 'all' || c.dataset.type === f;
+        c.style.display = show ? 'flex' : 'none';
       });
     });
-  </script>
+  });
+
+  // QR Code
+  window.addEventListener('load', () => {
+    const url = location.href.split('#')[0];
+    document.getElementById('qr-url-display').textContent = url;
+    new QRCode(document.getElementById('qrcode'), {
+      text: url, width: 176, height: 176,
+      colorDark: '#1C1917', colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  });
+</script>
 
 </body>
 </html>
