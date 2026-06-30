@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Europe's Rising Heat Challenge — Your Name</title>
+  <meta name="description" content="How Extreme Temperatures Are Driving a New Turning Point in the Energy Landscape" />
+
+  <!-- Same fonts as portfolio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Same design tokens as portfolio ───────────────────── */
+    :root {
+      --cream:      #F7F4EF;
+      --parchment:  #EDE8DF;
+      --ink:        #1C1917;
+      --ink-soft:   #44403C;
+      --ink-muted:  #78716C;
+      --terracotta: #C4622D;
+      --terra-pale: #F2E4D8;
+      --gold:       #B5894A;
+      --white:      #FFFFFF;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247, 244, 239, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--parchment);
+      padding: 1rem 0;
+    }
+    .nav-inner {
+      width: 90%; max-width: 780px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--terracotta); }
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* ── Article layout ─────────────────────────────────────── */
+    .article-wrap {
+      width: 90%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    .article-meta {
+      display: flex; align-items: center; gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .article-tag {
+      padding: 0.3rem 0.85rem;
+      background: var(--terra-pale);
+      color: var(--terracotta);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-family: var(--font-mono);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+    }
+    .article-platform {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+    }
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--parchment);
+    }
+
+    /* ── Author bar ─────────────────────────────────────────── */
+    .author-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--parchment);
+    }
+    .author-info {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--parchment);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-muted);
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    /* EDIT: Replace avatar placeholder with your photo */
+    /* <img src="photo.jpg" style="width:100%;height:100%;object-fit:cover;" /> */
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .author-role {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+    /* EDIT: Replace with your LinkedIn post URL */
+    .linkedin-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      border: 1.5px solid #0A66C2;
+      color: #0A66C2;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .linkedin-link:hover { background: #0A66C2; color: var(--white); }
+    .linkedin-link svg { flex-shrink: 0; }
+
+    /* ── Body copy ──────────────────────────────────────────── */
+    .article-body { }
+    .article-body p {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 1.6rem;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 3rem 0 1.2rem;
+      line-height: 1.25;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── Image placeholder ──────────────────────────────────── */
+    /* EDIT: Replace .img-placeholder with a real <img> tag */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--parchment);
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem;
+      margin: 2.5rem 0;
+      color: var(--ink-muted);
+    }
+    .img-placeholder svg { opacity: 0.3; }
+    .img-placeholder p {
+      font-family: var(--font-mono);
+      font-size: 0.72rem !important;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted) !important;
+      margin: 0 !important;
+    }
+
+    /* ── Pull quote ─────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--terracotta);
+      padding: 1rem 0 1rem 1.75rem;
+      margin: 2.5rem 0;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ── Footer / share bar ─────────────────────────────────── */
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--parchment);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    .footer-back:hover { color: var(--terracotta); }
+    .footer-share { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-share span {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+      <!-- EDIT: Your initials or name -->
+      <span class="J.YAO">YN</span>
+    </div>
+  </nav>
+
+  <!-- ── Article ───────────────────────────────────────────── -->
+  <article class="article-wrap">
+
+    <!-- Meta -->
+    <div class="article-meta">
+      <span class="article-tag">Article</span>
+      <span class="article-date">2026</span>
+      <span class="article-date">·</span>
+      <span class="article-platform">Personal Blog</span>
+    </div>
+    
+    <!-- EDIT: Replace this block with <img src="your-image.jpg" alt="..." /> -->
+    <img src="photo1.jpg" alt="Europe’s extreme heat captured by Copernicus Sentinel-3 satellite data. Credit: European Union, Copernicus Sentinel-3 imagery."
+           style="width:100%; border-radius:4px; margin: 2.5rem 0;" />
+
+    <!-- Title -->
+    <h1 class="article-title">Europe's Rising Heat Challenge</h1>
+    <p class="article-subtitle">
+      How Extreme Temperatures Are Driving a New Turning Point in the Energy Landscape
+    </p>
+
+    <!-- Author + LinkedIn -->
+    <div class="author-bar">
+      <div class="author-info">
+        <div class="author-avatar">YN</div>
+        <div>
+          <!-- EDIT: Your name and title -->
+          <p class="Jiayi YAO">Your Name</p>
+          <p class="author-role">Communications & Marketing Professional</p>
+        </div>
+      </div>
+      <!-- EDIT: Replace href with your real LinkedIn post URL -->
+      <a href="https://www.linkedin.com/pulse/europes-rising-heat-challenge-how-extreme-temperatures-susan-yao-uousf/" target="_blank" class="linkedin-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        View on LinkedIn
+      </a>
+    </div>
+
+    <!-- Body -->
+    <div class="article-body">
+
+      <p>
+        Europe is experiencing a new climate reality. Heatwaves that were once considered exceptional
+        are becoming more frequent, longer, and more intense. Beyond the immediate impact on daily life,
+        rising temperatures are also creating a deeper challenge for Europe's energy system.
+      </p>
+
+      <p>
+        One of the most visible changes is the growing demand for cooling. As summers become hotter,
+        more homeowners, businesses, and public institutions are considering air conditioning and other
+        cooling solutions to maintain comfort, productivity, and safety. However, this adaptation comes
+        with a new question: can the current energy structure support a significant increase in
+        electricity demand during extreme heat periods?
+      </p>
+
+      <p>
+        Traditionally, Europe's energy consumption patterns have been shaped by winter heating demand.
+        Compared with many other regions, air conditioning adoption has remained relatively limited due
+        to Europe's moderate climate, building structures, and energy efficiency practices. But as
+        extreme heat becomes more common, <strong>cooling demand may gradually become a new driver
+        of electricity consumption.</strong>
+      </p>
+
+      <p>
+        This shift could create new pressure on the energy system. More cooling equipment means higher
+        electricity consumption, especially during peak hours when households and commercial buildings
+        rely heavily on air conditioning. For consumers, this could translate into higher electricity
+        bills. For businesses and institutions, increasing cooling costs may become a significant
+        operational challenge.
+      </p>
+
+      <div class="pull-quote">
+        "The issue is not simply about having enough electricity. It is about building an energy system
+        that can deliver stable, affordable, and sustainable power when demand becomes increasingly
+        unpredictable."
+      </div>
+
+      <h2>A New Opportunity: Towards a More Flexible and Resilient Energy System</h2>
+
+      <p>
+        While extreme heat creates new challenges, it also highlights the importance of accelerating
+        the transition toward a more flexible and decentralized energy structure.
+      </p>
+
+      <p>
+        During this year's <strong>The smarter E Europe</strong>, one trend was particularly clear:
+        Europe's solar market has already entered a more mature stage, while energy storage is
+        experiencing much faster growth and attention.
+      </p>
+
+      <!-- EDIT: Replace this block with your second photo -->
+      <img src="phtot2.jpg" alt="The smarter E Europe 2026, Munich, Germany. Photo © Solar Promotion GmbH."
+           style="width:100%; border-radius:4px; margin: 2.5rem 0;" />
+      
+
+      <p>
+        This reflects an important transformation in the European energy landscape. Solar energy
+        adoption has already built a strong foundation across many European markets. The next challenge
+        is no longer only about generating clean electricity, but about <strong>ensuring that energy
+        remains available whenever it is needed.</strong>
+      </p>
+
+      <p>
+        This is where energy storage becomes increasingly important.
+      </p>
+
+      <p>
+        Interestingly, the growing demand for cooling solutions aligns naturally with the development
+        of solar and storage systems. The strongest sunlight often appears during the hottest periods
+        of the year, meaning solar generation can directly support higher daytime electricity demand
+        from cooling systems.
+      </p>
+
+      <p>
+        However, electricity consumption does not always match solar generation. As people continue
+        using cooling equipment into the evening or during periods of lower solar production, energy
+        storage becomes essential for maintaining a stable supply.
+      </p>
+
+      <p>
+        Battery storage can help bridge this gap by storing excess solar energy during the day and
+        making it available when demand rises. For homeowners, this means greater energy independence
+        and better control over electricity costs. For businesses and institutions, storage can provide
+        stronger energy resilience and reduce exposure to energy price fluctuations.
+      </p>
+
+      <p>
+        This is why the growth of cooling demand caused by climate change could potentially create a
+        <strong>positive chain effect for the energy storage market.</strong> The need for reliable
+        electricity is pushing the market beyond simple energy generation toward smarter energy management.
+      </p>
+
+      <h2>The Future Energy Market: Adaptation, Not Decline</h2>
+
+      <p>
+        There is sometimes a perception that mature renewable energy markets may slow down once solar
+        adoption reaches a certain level. However, Europe's current situation shows a different picture.
+      </p>
+
+      <div class="pull-quote">
+        "The energy industry is not declining — it is entering a new phase of development."
+      </div>
+
+      <p>
+        Extreme weather conditions are creating new requirements for energy systems. The future will
+        not only depend on how much renewable energy can be produced, but also on how effectively it
+        can be stored, managed, and delivered during changing conditions.
+      </p>
+
+      <!-- EDIT: Replace this block with your second photo -->
+      <img src="phtot3.jpg" alt="Traditional European apartments with limited air-conditioning setups. Photo by MICHOFF via Pixabay."
+     style="width:100%; border-radius:4px; margin: 2.5rem 0;" />
+
+        For energy companies, this means solutions need to become more practical and integrated.
+        The market increasingly needs <strong>complete energy ecosystems</strong> that combine solar
+        generation, battery storage, intelligent energy management, and flexible consumption.
+      </p>
+
+      <p>
+        As climate conditions continue to evolve, resilience will become just as important as
+        sustainability.
+      </p>
+
+      <p>
+        The question for Europe is no longer only how to transition toward clean energy, but how to
+        build an energy system that can remain reliable under new environmental challenges.
+        <strong>The future belongs to technologies and solutions that can transform uncertainty
+        into stability.</strong>
+      </p>
+
+    </div><!-- /.article-body -->
+
+    <!-- Footer -->
+    <div class="article-footer">
+      <a href="index.html" class="footer-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+      <div class="footer-share">
+        <span>ALSO ON</span>
+        <!-- EDIT: Replace href with your real LinkedIn post URL -->
+        <a href="https://www.linkedin.com/pulse/europes-rising-heat-challenge-how-extreme-temperatures-susan-yao-uousf/" target="_blank" class="linkedin-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          View on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </article>
+
+</body>
+</html>
