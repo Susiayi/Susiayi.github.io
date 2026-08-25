@@ -454,6 +454,10 @@
     .tl-co   { font-size: 0.78rem; color: rgba(255,255,255,0.42); font-weight: 300; }
     .tl-role { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; margin-bottom: 0.55rem; line-height: 1.2; }
     .tl-desc { font-size: 0.85rem; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 540px; }
+    .tl-points { max-width: 820px; padding-left: 1.1rem; }
+    .tl-points li { padding-left: 0.25rem; }
+    .tl-points li + li { margin-top: 0.45rem; }
+    .tl-points li::marker { color: var(--gold); }
     .tl-tags { display: flex; flex-wrap: wrap; gap: 0.32rem; margin-top: 0.8rem; }
     .tl-tag  {
       padding: 0.18rem 0.6rem;
@@ -594,7 +598,7 @@
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-hl rv">
-        Marketing<br>that <em>connects</em><br>markets.
+        Connecting<br><em>markets, teams</em><br>&amp; ideas.
       </h1>
       <!-- EDIT: Adjust your one-liner -->
       <p class="hero-sub rv">
@@ -616,7 +620,6 @@
         <a href="Jiayi-Susan-Yao-CV-EN.pdf" download class="btn-work">Download CV ↓</a>
         <a href="#work" class="btn-work">See my work ↓</a>
       </div>
-      <p class="hero-credit rv">This website was built with OpenAI Codex.</p>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -754,9 +757,6 @@
         </div>
         <div class="rv">
           <p class="toolkit-desc">
-            Showcasing the platforms, tools, and AI-enabled workflows I use to support international marketing campaigns, brand communications, paid media, content creation, and performance optimization.
-          </p>
-          <p class="toolkit-desc">
             <strong>Campaigns &amp; Analytics:</strong> LinkedIn Campaign Manager, Google Ads, Meta Business Suite, Google Analytics, Google Search Console, SEO, and GEO.
           </p>
           <p class="toolkit-desc">
@@ -858,17 +858,12 @@
         </div>
         <div>
           <h3 class="tl-role">International Brand Promotion Specialist</h3>
-          <p class="tl-desc">
-            Co-managed an annual paid-media budget of approximately €110,000 across LinkedIn Ads
-            (€77,000), Google Ads (€28,000), and Meta Ads (€5,500), covering campaign planning,
-            regional allocation, and performance monitoring. Managed global content and digital channels
-            across LinkedIn, Facebook, Instagram, TikTok, X, YouTube, and corporate websites, integrating
-            organic content, paid advertising, and SEO/GEO initiatives. Led integrated communications for
-            international product launches, exhibitions, and customer campaigns, delivering newsletters,
-            blogs, press releases, and social media content. Coordinated agencies, vendors, and regional
-            teams across Europe, APAC, the Americas, and MEA, supporting localization, internal training,
-            and exhibitions including Intersolar Europe in Munich.
-          </p>
+          <ul class="tl-desc tl-points">
+            <li>Co-managed an annual paid-media budget of approximately €110,000 across LinkedIn Ads, Google Ads, and Meta Ads, covering campaign planning, regional allocation, and performance monitoring.</li>
+            <li>Coordinated agencies, partners, and regional teams across Europe, APAC, the Americas, and MEA; worked on-site closely with teams and customers in Germany and the Netherlands; supported large-scale exhibitions including Intersolar Europe.</li>
+            <li>Managed global content and digital channels across LinkedIn, Facebook, Instagram, TikTok, X, YouTube, and corporate websites, integrating organic content, paid advertising, and SEO/GEO initiatives.</li>
+            <li>Led integrated communications for international product launches, exhibitions, and customer campaigns, delivering newsletters, blogs, press releases, and social media content.</li>
+          </ul>
           <div class="tl-tags">
             <span class="tl-tag">International Brand Promotion</span>
             <span class="tl-tag">Paid Media</span>
@@ -905,12 +900,10 @@
         </div>
         <div>
           <h3 class="tl-role">International Marketing Full-time Intern</h3>
-          <p class="tl-desc">
-            Managed bilingual channels including LinkedIn, YouTube, and English/Chinese corporate websites.
-            Independently produced news releases, blogs, and customer case studies and brochures. Supported
-            product launches, webinars, and corporate campaigns, coordinating content, design, publishing,
-            external vendors, and cross-border teams in France and Hong Kong.
-          </p>
+          <ul class="tl-desc tl-points">
+            <li>Managed bilingual channels including LinkedIn, YouTube, and English/Chinese corporate websites. Independently produced news releases, blogs, and customer case studies and brochures.</li>
+            <li>Supported product launches, webinars, and corporate campaigns, coordinating content, design, publishing, external vendors, and cross-border teams in France and Hong Kong.</li>
+          </ul>
           <div class="tl-tags">
             <span class="tl-tag">International Marketing</span>
             <span class="tl-tag">AI Industry</span>
@@ -955,8 +948,8 @@
         <p class="sec-num rv">05 / Contact</p>
         <h2 class="sec-title rv">Let's work<br>together.</h2>
         <p class="contact-desc rv">
-          Based in Augsburg, Germany, I am open to relocation and seeking roles in international
-          marketing, brand communications, AI marketing, and digital transformation.
+          Based in Augsburg, Germany, I am open to relocation and opportunities where international
+          experience, cross-functional coordination, communications, and digital expertise can create value.
         </p>
         <div class="contact-channels rv">
           <!-- EDIT: Your email -->
